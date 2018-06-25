@@ -1,4 +1,3 @@
-
 def dot(A,C):
   """ This function dot(A,C) computes the dot product between the two vectors A and C. It does this by first measuring the lengths of the two lists, which returns how many elements there are in the vectors. Then the function goes to an if statement which will continue to compute the dot product if the two vectors have the same number of elements, otherwise it will return an error message stating that there is an invalid input. Once the vectors pass the if statment a scalar B is defined to be the value 0. A for loop which will continue to add the the product of each element in the lists that share the corresponding list value. It does this because i is defined to be the position in a list, and by having i used for the position of both lists A and C it allows the for loop to continue to multiply the same position values for both lists and sum them to the previous value of b_i, using +=. This sum will be the new value for B, B will then be returned to be the output for this function of the dot product.""" 
   # Start of the definition of the function of the dot product
@@ -102,17 +101,18 @@ def normalize(A):
 # Defines the current value of B to be equal to the current absolute value element in A     
   C = [[0] for row in range(n)]
 # Defines C to be a list of 0s with same number of elements as A  
-  for i in range(n):
+  if B != 0:
+    for i in range(n):
 # for loop which continues as long as there are elements in A  
-    C[i] = A[i]/B
+      C[i] = A[i]/B
 # Replaces corresponding element in C with the element in A divided by the value for B    
   return C  
 # infNorm(A) returns value of C
 
 
 
-A=[1,2,3,4]
-C=[1,2,3]
+A=[1,2,4]
+C=[3,2,1,3]
 
 s=2
 # These are the values for the vectors A, C and the scalar s.
