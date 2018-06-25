@@ -113,7 +113,8 @@ def normalize(A):
 
 A=[1,2,3,4]
 C=[1,2,3]
-s=1
+
+s=2
 # These are the values for the vectors A, C and the scalar s.
 print("The Dot Product of A and C is:",(dot(A,C)))
 print("The difference between vectors A and C is:",(vecSubtract(A,C)))
