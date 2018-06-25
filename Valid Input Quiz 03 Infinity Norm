@@ -66,23 +66,21 @@ def scalarVecMulti(A,s):
 
 
 def infNorm(A):
-  """ This function infNorm(A) is made to find the infinity norm of the vector. The infinity norm is the absolute value of the max value in the vector. It does this by first designating n to be the length of list A, then designating B to be the first number in list A. In python [0] is considered the first element in a list. Then a for loop is created that will continue as long as the value 'i' is in range of 'n' this means that the list will continue as long as i is = to a position in list A. A if statement is made stating that if B is less than or equal to the element in the current position of A, then the value for B will be replaced by the that element. After the loop has concluded a new value C is defined to be the absolute value of B which is then returned to be the value for the inNorm.  """
+  """ This function infNorm(A) is made to find the infinity norm of the vector. The infinity norm is the max absolute value element in the vector . It does this by first designating n to be the length of list A, then designating B to be the first number in list A. In python [0] is considered the first element in a list. Then a for loop is created that will continue as long as the value 'i' is in range of 'n' this means that the list will continue as long as i is = to a position in list A. A if statement is made stating that if B is less than or equal to the absolute value of the element in the current position of A, then the value for B will be replaced by the absolute value of  that element. The final value of B will be returned to be the value of infNorm  """
 # Defines function infNorm which calculates the infinity norm of a vector 
  
   n = len(A) 
 # Defines length of list A which returns the number of elements in the Vector  
-  B = A[0]
+  B = abs(A[0])
 # Defines B to be the first element in A
   for i in range(n):
 # For loop to continue as long as there are elements in list A    
-    if B <= A[i]:
+    if B <= abs(A[i]):
 # if statement saying that if the current element in list A is greater than the current value for B then continue      
-      B = (A[i])
-# Defines the current value of B to be equal to the current element in A      
-  C = abs(B)    
-# Defines C to be equal to the absolute value of B  
-  return C
-# infNorm(A) returns value of C
+      B = abs((A[i]))
+# Defines the current value of B to be equal to the current abso lute value element in A     
+  return B
+# infNorm(A) returns value of B
 
 
 
@@ -94,23 +92,21 @@ def normalize(A):
  
   n = len(A) 
 # Defines length of list A which returns the number of elements in the Vector  
-  B = A[0]
+  B = abs(A[0])
 # Defines B to be the first element in A
   for i in range(n):
 # For loop to continue as long as there are elements in list A    
-    if B <= A[i]:
+    if B <= abs(A[i]):
 # if statement saying that if the current element in list A is greater than the current value for B then continue      
-      B = (A[i])
-# Defines the current value of B to be equal to the current element in A      
-  C = abs(B)    
-# Defines C to be equal to the absolute value of B  
-  D = [[0] for row in range(n)]
-# Defines D to be a list of 0s with same number of elements as A  
+      B = abs((A[i]))
+# Defines the current value of B to be equal to the current absolute value element in A     
+  C = [[0] for row in range(n)]
+# Defines C to be a list of 0s with same number of elements as A  
   for i in range(n):
 # for loop which continues as long as there are elements in A  
-    D[i] = A[i]/C
-# Replaces corresponding element in D with the element in A divided by the value for C    
-  return D  
+    C[i] = A[i]/B
+# Replaces corresponding element in C with the element in A divided by the value for B    
+  return C  
 # infNorm(A) returns value of C
 
 
