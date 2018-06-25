@@ -1,0 +1,126 @@
+
+def dot(A,C):
+  """ This function dot(A,C) computes the dot product between the two vectors A and C. It does this by first measuring the lengths of the two lists, which returns how many elements there are in the vectors. Then the function goes to an if statement which will continue to compute the dot product if the two vectors have the same number of elements, otherwise it will return an error message stating that there is an invalid input. Once the vectors pass the if statment a scalar B is defined to be the value 0. A for loop which will continue to add the the product of each element in the lists that share the corresponding list value. It does this because i is defined to be the position in a list, and by having i used for the position of both lists A and C it allows the for loop to continue to multiply the same position values for both lists and sum them to the previous value of b_i, using +=. This sum will be the new value for B, B will then be returned to be the output for this function of the dot product.""" 
+  # Start of the definition of the function of the dot product
+
+  n = len(A)
+  # Returns number of elements in Vector A
+  m = len(C)
+  # Returns number of elements in Vector C
+  if n == m:
+  # The condition that requires the two vectors to be of same length to proceed with the dot product calculation
+    B = [0]
+  # Defining the initial value for the result of dot product, before anything has been calculated
+    b_i = 0
+  # Defining where the sum of the values will start
+    for i in range(n):
+  # This calculation will loop for each position in the vector until completed
+       b_i += A[i]*C[i]
+  # The actual calculation which consists of corresponding postions in the vectors being multiplied by each other
+    B = b_i
+  #The final value of the secquence
+    return B
+  # Returning the final value of the sequence as the new value of B for this condition that the two vectors are of same length
+  else:
+    return "Invalid Input"
+  # If the initial condition is not satisfied and the two vectors are not of same length then there will be an error message stating that there is an invalid input
+
+
+def vecSubtract(A,C):
+  """ This function vecSubtract(A,C) computes the difference between two vectors A and C. It does this by first measuring the lengths of the two lists, which returns how many elements there are in the vectors. Then the function goes to an if statement which will continue to compute the difference if the two vectors have the same number of elements, otherwise it will return an error message stating that there is an invalid input. Once the vectors pass the if statment a list B is defined to be a list full of 0s with the continueing number of elements until it reaches the range of the length of A. i is then defined to be the position of set B,A, and C. A for loop will then continue to subtract the same positioned elements of A and C and replace the 0 in B for each corresponding position. B is then returned to be a new list and the output to the function. This is the new vector that is the difference between A and C   """
+# Start of Definition of vector subtraction
+  n = len(A)
+  m = len(C)
+# Measures the lengths of the two vectors
+  if n == m:
+# The condition that requires the two vectors to be of the same length    
+    B = [[0] for row in range(n)]
+# Defines the output B to be a vector for each value is 0 as long as the length is in range of the length of A. There is no need to include the length of C in this definition as the if statement already requires both length A and length C to be the same           
+    for i in range(n):
+# This condition that allows this program to continue to calculate as long as there are more elements in the vector. Ensures that every position in the vectors is accounted for.   
+     B[i] = A[i]-C[i]
+# The actual calculation of vector subtraction. For each respective position in the vector, the output is the difference between the elements of the two vectors in their same position.
+    return B
+# Returns the new value for B which is calculated in the previous step
+  else:
+    return "Invalid Input"
+# If the two vectors are not of same length then the output will read an error message stating that the inputs are invalid.
+
+
+
+def scalarVecMulti(A,s):
+  """ This function scalarVecMulti computes the scalar-vector product between the vector A and scalar s. It first does this by measuring how many elements there are in list A. Then a new list is defined as B which consists of continueing 0s till it reaches the range length A. i is now defined as the position in the list A and list B. A for loop will now continue for as long as there are elements in A and will multiply each individual element by the scalar s. The for loop replaces each of the 0s with this product for each corresponding position in the list. This is the vector that will be returned at the end of of this function.  """
+# Defines the fucntion scalarVecMulti, which will calculate the output of multiplication between a scalar and a vector
+  n = len(A)
+# Defines the length of the vector A as n  
+  B = [[0] for row in range(n)]
+# Defines B to be a list known as the Vector B and for it to have 0s for every position for as long as it is in range of n, which is the length of A 
+  for i in range(n):
+# While the position of the vector is within the range of the lenght of A this calculation will continue  
+    B[i] = A[i]*s
+# The value for each position in the new Vector B is defined as the corresponding position of A's value multiplied by the scalar scalar
+  return B
+# Returns the value for B after this calculation
+
+
+
+
+def infNorm(A):
+  """ This function infNorm(A) is made to find the infinity norm of the vector. The infinity norm is the absolute value of the max value in the vector. It does this by first designating n to be the length of list A, then designating B to be the first number in list A. In python [0] is considered the first element in a list. Then a for loop is created that will continue as long as the value 'i' is in range of 'n' this means that the list will continue as long as i is = to a position in list A. A if statement is made stating that if B is less than or equal to the element in the current position of A, then the value for B will be replaced by the that element. After the loop has concluded a new value C is defined to be the absolute value of B which is then returned to be the value for the inNorm.  """
+# Defines function infNorm which calculates the infinity norm of a vector 
+ 
+  n = len(A) 
+# Defines length of list A which returns the number of elements in the Vector  
+  B = A[0]
+# Defines B to be the first element in A
+  for i in range(n):
+# For loop to continue as long as there are elements in list A    
+    if B <= A[i]:
+# if statement saying that if the current element in list A is greater than the current value for B then continue      
+      B = (A[i])
+# Defines the current value of B to be equal to the current element in A      
+  C = abs(B)    
+# Defines C to be equal to the absolute value of B  
+  return C
+# infNorm(A) returns value of C
+
+
+
+
+
+def normalize(A):
+  """ This function is made to find the normalization of a vector with respect to its infinity norm. The first half of the normalize function is completley identical to the infinity norm function, as the infinity norm is required for this definition. Once the infinity norm is found which is defined as C, a list D is created which is filled with 0s for row, which each element is considered a row, in range n which will be the length of A. So list D will be of same length as A. A for loop is then initiated which will continue for as long as 'i' is in range of 'n' so 0-last position in A. It is stated that the corresponding position in D will be equal to the corresponding position in A divided by C. It does this by using the same value 'i' to note the position for both A and D. And this continues for every position in the list A as i is in range of n. """
+# Defines function normalize which calculates the normalized vector with respect to the infinity norm of the vector 
+ 
+  n = len(A) 
+# Defines length of list A which returns the number of elements in the Vector  
+  B = A[0]
+# Defines B to be the first element in A
+  for i in range(n):
+# For loop to continue as long as there are elements in list A    
+    if B <= A[i]:
+# if statement saying that if the current element in list A is greater than the current value for B then continue      
+      B = (A[i])
+# Defines the current value of B to be equal to the current element in A      
+  C = abs(B)    
+# Defines C to be equal to the absolute value of B  
+  D = [[0] for row in range(n)]
+# Defines D to be a list of 0s with same number of elements as A  
+  for i in range(n):
+# for loop which continues as long as there are elements in A  
+    D[i] = A[i]/C
+# Replaces corresponding element in D with the element in A divided by the value for C    
+  return D  
+# infNorm(A) returns value of C
+
+
+
+A=[1,2,3,4]
+C=[1,2,3]
+s=1
+# These are the values for the vectors A, C and the scalar s.
+print("The Dot Product of A and C is:",(dot(A,C)))
+print("The difference between vectors A and C is:",(vecSubtract(A,C)))
+print("The vector-scalar product of A and s is:",(scalarVecMulti(A,s)))
+print("The Infinity Norm of A is:",(infNorm(A)))
+print("The Normalization of A is:",(normalize(A)))
